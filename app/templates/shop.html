@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+</head>
+<link rel="stylesheet" href="{{url_for('.static', filename='shop.css')}}">
+<body>
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="" alt="">
+                <div class="card-body">bum chakalaka</div>
+                <div class="card-foorter">
+                    <a href="#" class="float-left btn btn-sm btn-primary">Details</a>
+                    <a href="#" class="float-right btn btn-sm btn-warning">Add to cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+</body>
+</html>

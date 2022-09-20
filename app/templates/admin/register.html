@@ -1,0 +1,58 @@
+{% extends 'home.html' %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Admin</title>
+</head>
+<body>
+{% block content %}
+<div class="text-center h1 text-danger">Register</div>
+<div class="container">
+    <form action="" method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label for={form.name}>Name</label>
+            {{ form.name(placeholder = "Please enter your full name", class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            <label for={form.username}>Username</label>
+            {{ form.username(placeholder = "Enter your desire username", class="form-control") }}
+            {% for error in form.username.errors %}
+            <span style="color: black;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for={form.username}>Email</label>
+            {{ form.email(placeholder = "example@site.something", class="form-control") }}
+            {% for error in form.email.errors %}
+            <span style="color: black;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for={form.username}>Password</label>
+            {{ form.password(placeholder = "Enter your password", class="form-control") }}
+            {% for error in form.password.errors %}
+            <span style="color: black;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for={form.username}>Confirm password</label>
+            {{ form.confirm(placeholder = "Repeat your password", class="form-control") }}
+            {% for error in form.confirm.errors %}
+            <span style="color: black;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for={form.username}>Please review our policy before register!</label>
+            {{ form.accept_tos(placeholder = "Be sure to accept our policy!", class="form-control") }}
+        </div>
+            <input type="file" name="photo">
+
+        <p><input type=submit value='Register' class="btn btn-info mt-2"></p>
+    </form>
+</div>
+{% endblock %}
+</body>
+</html>
