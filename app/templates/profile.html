@@ -1,0 +1,77 @@
+{% extends 'background_nav.html' %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('.static', filename='profile.css')}}">
+
+<div class="row">
+    <img src="{{ current_user.profile }}">
+    <div class="card flex-row" style="width: 18rem;">
+
+        <div class="card-body">
+            <h5 class="card-title h5 h4-sm">User info</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Main user info:</h6>
+                <p class="card-text">
+                <p>Username: {{ current_user.username }}</p>
+                <p>Full Name: {{ current_user.name }}</p>
+                <p>Email: {{ current_user.email }}</p>
+                {% if is_admin %}
+                <p>Admin Role: True</p>
+                {% endif %}
+            </p>
+            <a href="#" class="card-link">Edit</a>
+        </div>
+    </div>
+    <div>
+
+    </div>
+</div>
+<div>
+    {% if is_admin %}
+    <p><a href="{{url_for('admin_dashboard')}}" class="btn btn-primary">Admin dashboard</a></p>
+    {% endif %}
+</div>
+
+
+<div class="content">
+    {% if has_info_bool %}
+<div class="card" style="
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;]
+  border-style: outset;
+  border-color: black;">
+    <div class="card-body">
+        <p class="card-text">
+            <h1>User info for shipping:</h1>
+            {% for info in user_info %}
+        <h1><p>Phone: {{ info.phone }},</p>
+               <p>Country: {{ info.country }},</p>
+            <p>City: {{ info.city }},</p>
+               <p> Address: {{ info.address }}.</p>
+            </h1>
+            <div class="text-left">
+                <a href="#" class="btn btn-primary">Edit</a>
+            </div>
+            {% endfor %}
+        </p>
+    </div>
+</div>
+    {% else %}
+    <div style = 'text-align:center;'>
+        You don't have user information!
+    </div>
+    {% endif %}
+    {% endblock %}
+</div>
+
+
+</body>
+</html>
